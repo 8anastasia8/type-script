@@ -1,5 +1,5 @@
 class School {
-  directions: string[] = [];
+  directions: string[];
 
   addDirection(direction: string): void {
     this.directions.push(direction);
@@ -7,7 +7,7 @@ class School {
 }
 
 class Direction {
-  levels: string[] = [];
+  levels: string[];
   _name: string;
 
   constructor(name: string) {
@@ -47,7 +47,7 @@ class Level {
 }
 
 class Group {
-  _students: string[];
+  _students: any[];
   _directionName: string;
   _levelName: string;
 
@@ -65,7 +65,8 @@ class Group {
   }
 
   showPerformance(): string[] {
-    const sortedStudents = this._students.sort(
+    const studentsCopy = this._students;
+    const sortedStudents = studentsCopy.sort(
       (a, b) => b.getPerformanceRating() - a.getPerformanceRating()
     );
 
