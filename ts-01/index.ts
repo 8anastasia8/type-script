@@ -14,7 +14,7 @@ class Direction {
     this._name = name;
   }
 
-  get name() {
+  get name(): string {
     return this._name;
   }
 
@@ -33,11 +33,11 @@ class Level {
     this._program = program;
   }
 
-  get name() {
+  get name(): string {
     return this._name;
   }
 
-  get program() {
+  get program(): string {
     return this._program;
   }
 
@@ -56,7 +56,7 @@ class Group {
     this._levelName = levelName;
   }
 
-  get students() {
+  get students(): any[] {
     return this._students;
   }
 
@@ -65,8 +65,7 @@ class Group {
   }
 
   showPerformance(): string[] {
-    const studentsCopy = this._students;
-    const sortedStudents = studentsCopy.sort(
+    const sortedStudents = [...this._students].sort(
       (a, b) => b.getPerformanceRating() - a.getPerformanceRating()
     );
 
@@ -75,7 +74,7 @@ class Group {
 }
 
 class Student {
-  grades = {};
+  grades: object = {};
   attendance: number[];
   _firstName: string;
   _lastName: string;
